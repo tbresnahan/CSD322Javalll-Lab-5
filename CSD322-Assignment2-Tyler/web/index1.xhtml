@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+            <title>CSD322</title>
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"></link>
+            <link rel="stylesheet" href="css/bootstrap.css"/>
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $(".datepicker").datepicker({
+                        dateFormat: 'dd-mm-yy',
+                        changeMonth: true,
+                        changeYear: true,
+                        yearRange: "-75:+0",
+                        maxDate: "+0d +0m",
+                        constrainInput: "true"
+                    });
+                });
+            </script>
+    </h:head>
+    <h:body>
+        <!-- NAVIGATION BAR -->
+        <div class="navbar navbar-default navbar-transparent">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="./" class="navbar-brand">CSD322</a>
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar-main">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>Hey there, Tyler!</li>
+                    </ul>
+                </div>	
+            </div>		
+        </div>
+        <!-- END NAVIGATION BAR -->
+
+        <section id="main">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h:form>
+                            <table>
+                                <tr>
+                                    <td>Name:</td>
+                                    <td><h:inputText id="name" value="#{user.name}" validatorMessage="#{msg.nameMessage}"></h:inputText>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Address:</td>
+                                    <td><h:inputText id="address" value="#{user.address}" validatorMessage="#{msg.addressMessage}">
+                                        </h:inputText>
+                                    </td>
+                                </tr> 
+                                <tr>
+                                    <td>Date of Birth:</td>
+                                    <td>
+                                        <h:inputText id="dateOfBirth" value="#{user.dateOfBirth}" styleClass="datepicker" validatorMessage="#{msg.dateMessage}">
+                                            <f:convertDateTime pattern="dd-mm-yy"/> 
+                                        </h:inputText>
+
+                                    </td>
+                                </tr>
+
+                            </table>
+                            <p><h:commandButton value="Login" action="results"/></p>
+                        </h:form>
+                    </div>	
+                </div>	
+            </div>
+
+        </section>
+    </h:body>
+</html>
